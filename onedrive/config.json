@@ -1,0 +1,6 @@
+{
+	"tenant_id": "YOUR TENANT ID HERE",
+	"client_id": "YOUR APPLICATION (CLIENT) ID HERE",
+	"redirect_uri": "https://login.microsoftonline.com/common/oauth2/nativeclient",
+	"resource" : "https://graph.microsoft.com"
+}
