@@ -18,7 +18,7 @@ PROC SQL;
           t2.ordinal_scenes as scene_id, 
           input(t2.sceneStart,time.) as time_start format=time., 
           input(t2.sceneEnd,time.) as time_end format=time., 
-          (calculated time_end) - (calculated time_start) as duration,
+          (calculated time_end) - (calculated time_start) as duration format=time.,
           t3.name
       FROM EPISODE.EPISODES t1, 
            EPISODE.EPISODES_SCENES t2, 
