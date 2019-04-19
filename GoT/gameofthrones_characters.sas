@@ -14,7 +14,8 @@ libname episode JSON fileref=eps;
 PROC SQL;
    CREATE TABLE WORK.character_scenes AS 
    SELECT t1.seasonNum, 
-          t1.episodeNum, 
+          t1.episodeNum,
+          t2.ordinal_scenes as scene_id, 
           input(t2.sceneStart,time.) as time_start format=time., 
           input(t2.sceneEnd,time.) as time_end format=time., 
           (calculated time_end) - (calculated time_start) as duration,
@@ -25,6 +26,24 @@ PROC SQL;
       WHERE (t1.ordinal_episodes = t2.ordinal_episodes AND 
              t2.ordinal_scenes = t3.ordinal_scenes);
 QUIT;
+
+/* Create a table of characters and TOTAL screen time */
+proc sql;
+  create table characters as 
+    select name,
+      sum(duration) as total_screen_time format=time.
+    from character_scenes
+      group by name
+        order by total_screen_time desc;
+
+  /* and a table of scenes */
+  create table scenes as
+    select distinct t1.seasonNum, t1.episodeNum, t1.scene_id, 
+      t1.time_start, t1.time_end, t1.duration format=time.,
+      t2.location, t2.subLocation
+    from character_scenes t1 left join episode.episodes_scenes t2 
+      on (t1.scene_id = t2.ordinal_scenes);
+quit;
 
 /* Sum up the screen time per character, per episode */
 PROC SQL;
@@ -53,15 +72,16 @@ RANKS rank;
 
 /* Create a gridded presentation of Episode graphs, single ep timings */
 title;
-filename htmlout temp;
+filename per_ep temp;
 ods graphics / width=500 height=300 imagefmt=svg noborder;
-ods html5 file=htmlout options(svg_mode="inline")  gtitle style=daisy;
+ods html5 file=per_ep options(svg_mode="inline")  gtitle style=daisy;
 ods layout gridded columns=3 advance=bygroup;
 proc sgplot data=ranked_timings noautolegend ;
   hbar name / response=timePerEpisode 
     categoryorder=respdesc 
-    colorresponse=rank dataskin=crisp
-    datalabel=name datalabelpos=right datalabelattrs=(size=10pt);
+    colorresponse=rank dataskin=crisp datalabelpos=right
+    datalabel=name datalabelattrs=(size=10pt)
+    seglabel seglabelattrs=(weight=bold size=10pt color=white) ;    
   by epLabel notsorted;
   format timePerEpisode time.;
   label epLabel="Ep";
@@ -107,17 +127,47 @@ PROC RANK DATA = WORK.cumulative
 	VAR cumulative;
 RANKS rank;
 
-/* Create a gridded presentation of Episode graphs CUMULATIVE timings */
+proc sql;
+  create table all_times
+  as select t1.*, t2.total_screen_time
+  from ranked_cumulative t1 left join characters t2 on (t1.name=t2.name)
+  order by epLabel;
+quit;
+
 title;
-filename htmlout temp;
+filename all_ep temp;
+
+ods html5 file=all_ep options(svg_mode="inline")  gtitle style=daisy;
+
+/* Create a summary of scene locations and time spent */
+ods graphics / reset width=800 height=600 imagefmt=svg noborder;
+proc sgplot data=work.scenes;
+ hbar location / response=duration 
+   categoryorder=respdesc seglabel seglabelattrs=(color=white weight=bold);
+ yaxis display=(nolabel);
+ xaxis label="Scene time (HH:MM:SS)" grid values=(0 to '20:00:00't by '05:00:00't) ;
+run;
+
+/* Break it down for just the Crownlands */
 ods graphics / width=500 height=300 imagefmt=svg noborder;
-ods html5 file=htmlout options(svg_mode="inline")  gtitle style=daisy;
+proc sgplot data=work.scenes;
+ hbar subLocation / response=duration 
+   categoryorder=respdesc seglabel seglabelattrs=(color=white weight=bold);
+ yaxis display=(nolabel);
+ xaxis label="Crownlands Scene time (HH:MM:SS)" grid values=(0 to '20:00:00't by '05:00:00't) ;
+ where location="The Crownlands";
+run;
+
+/* Create a gridded presentation of Episode graphs CUMULATIVE timings */
+ods graphics / width=500 height=300 imagefmt=svg noborder;
 ods layout gridded columns=3 advance=bygroup;
-proc sgplot data=ranked_cumulative noautolegend ;
+proc sgplot data=all_times noautolegend ;
   hbar name / response=cumulative 
-    categoryorder=respdesc 
-    colorresponse=rank dataskin=crisp
-    datalabel=name datalabelpos=right datalabelattrs=(size=10pt);
+    categoryorder=respdesc  
+    colorresponse=total_screen_time dataskin=crisp
+    datalabel=name datalabelpos=right datalabelattrs=(size=10pt)
+    seglabel seglabelattrs=(weight=bold size=10pt color=white) ;
+   ;
   by epLabel notsorted;
   format cumulative time.;
   label epLabel="Ep";
@@ -140,11 +190,13 @@ ODS PRINTER file="c:\temp\got_cumulative.svg" style=daisy;
 ODS PRINTER file="/folders/myfolders/got_cumulative.svg" style=daisy;
 */
 
-proc sgplot data=ranked_cumulative noautolegend ;
+proc sgplot data=all_times noautolegend ;
   hbar name / response=cumulative 
     categoryorder=respdesc 
-    colorresponse=rank dataskin=crisp
-    datalabel=name datalabelpos=right datalabelattrs=(size=10pt);
+    colorresponse=total_screen_time dataskin=crisp
+    datalabel=name datalabelpos=right datalabelattrs=(size=10pt)
+    seglabel seglabelattrs=(weight=bold size=10pt color=white) ;
+   ;
   by epLabel notsorted;
   format cumulative time.;
   label epLabel="Ep";
