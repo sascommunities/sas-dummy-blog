@@ -45,6 +45,7 @@ proc sql;
       on (t1.scene_id = t2.ordinal_scenes);
 quit;
 
+/* DATA prep for per-episode character rankings */
 /* Sum up the screen time per character, per episode */
 PROC SQL;
    CREATE TABLE WORK.per_episode AS 
@@ -70,30 +71,8 @@ PROC RANK DATA = WORK.per_episode
 	VAR timePerEpisode;
 RANKS rank;
 
-/* Create a gridded presentation of Episode graphs, single ep timings */
-title;
-filename per_ep temp;
-ods graphics / width=500 height=300 imagefmt=svg noborder;
-ods html5 file=per_ep options(svg_mode="inline")  gtitle style=daisy;
-ods layout gridded columns=3 advance=bygroup;
-proc sgplot data=ranked_timings noautolegend ;
-  hbar name / response=timePerEpisode 
-    categoryorder=respdesc 
-    colorresponse=rank dataskin=crisp datalabelpos=right
-    datalabel=name datalabelattrs=(size=10pt)
-    seglabel seglabelattrs=(weight=bold size=10pt color=white) ;    
-  by epLabel notsorted;
-  format timePerEpisode time.;
-  label epLabel="Ep";
-  where rank<=10;
-  xaxis display=(nolabel) max='00:45:00't min=0 minor grid ;
-  yaxis display=none grid ;
-run;
-ods layout end;
-ods html5 close;
-
-/* Data prep to assemble cumulative timings */
-/* First SORT by name, season, episode*/
+/* Data prep to assemble cumulative timings ACROSS episodes/seasons */
+/* First SORT by name, season, episode */
 proc sort data=per_episode
  out=for_cumulative;
  by name seasonNum episodeNum;
@@ -133,6 +112,30 @@ proc sql;
   from ranked_cumulative t1 left join characters t2 on (t1.name=t2.name)
   order by epLabel;
 quit;
+
+
+/* Create a gridded presentation of Episode graphs, single ep timings */
+title;
+filename per_ep temp;
+ods graphics / width=500 height=300 imagefmt=svg noborder;
+ods html5 file=per_ep options(svg_mode="inline")  gtitle style=daisy;
+ods layout gridded columns=3 advance=bygroup;
+proc sgplot data=ranked_timings noautolegend ;
+  hbar name / response=timePerEpisode 
+    categoryorder=respdesc 
+    colorresponse=rank dataskin=crisp datalabelpos=right
+    datalabel=name datalabelattrs=(size=10pt)
+    seglabel seglabelattrs=(weight=bold size=10pt color=white) ;    
+  by epLabel notsorted;
+  format timePerEpisode time.;
+  label epLabel="Ep";
+  where rank<=10;
+  xaxis display=(nolabel) max='00:45:00't min=0 minor grid ;
+  yaxis display=none grid ;
+run;
+ods layout end;
+ods html5 close;
+
 
 title;
 filename all_ep temp;
