@@ -1,3 +1,5 @@
+/* Copyright SAS Institute Inc. */
+
 /* Create a temp dir to hold the data we download */
 options dlcreatedir;
 %let workloc = %sysfunc(getoption(WORK))/data;
