@@ -122,13 +122,13 @@ proc sgplot data=work.mjsum ;
       / position=topleft border backcolor=white ; 
  series x=year y=row_percent / 
    group=age_cat  
+   markers markerattrs=(size=12 symbol=Diamond color=blue)
    lineattrs=(thickness=4pt);
  xaxis minor grid display=(nolabel)  
    values=(2007 to 2017 by 1)  ;
  format 
    row_percent percent4.1;
- refline 2007 2009 2011 2013 2015 2016 2017 / 
-     lineattrs=(color=blue pattern=dash)  axis=x;
+
  yaxis grid display=(nolabel) min=0 max=1
    values=(0 to 1 by .05);
    keylegend / location=outside position=topleft across=1;
