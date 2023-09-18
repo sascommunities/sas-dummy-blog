@@ -97,6 +97,7 @@ run;
 /* Publish to Teams channel with a webhook */
 proc http
  method="POST"
+ ct="text/plain"
  url="https://outlook.office.com/webhook/my-unique-webhook-endpoint"
  in=msg;
 run;
