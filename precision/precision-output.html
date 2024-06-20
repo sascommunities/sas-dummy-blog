@@ -1,0 +1,4344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0091)https://support.sas.com/documentation/onlinedoc/guide/blog/precision/precision_example.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script src="chrome-extension://fgddmllnllkalaagkghckoinaemmogpe/scripts/content/gps.js"></script>
+<meta name="Generator" content="SAS Software Version 9.3, see www.sas.com">
+
+<title>SAS Output</title>
+<style type="text/css">
+<!--
+.aligncontents
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+  text-align: left;
+  vertical-align: middle;
+}
+.batch
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #3872AC;
+  border-left-width: 2px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 2px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  vertical-align: middle;
+}
+.body
+{
+  background-color: #FFFFFF;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.bodytext
+{
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.cell
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.column
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #3872AC;
+  border-left-width: 2px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 2px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  vertical-align: middle;
+}
+.container
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.contentitem
+{
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 10pt;
+}
+.contentproclabel
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.contentprocname
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.contents
+{
+  background-color: #EEEAC1;
+  color: #000000;
+  list-style-type: decimal;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.contentsdate
+{
+  background-color: #FFFFFF;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+  width: 100%;
+}
+.contenttitle
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.continued
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.data
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', Helvetica, sans-serif;
+  font-size: 8pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 3px;
+}
+.dataemphasis
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', Helvetica, sans-serif;
+  font-size: 8pt;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0px;
+  padding: 3px;
+}
+.dataemphasisfixed
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', Helvetica, sans-serif;
+  font-size: 8pt;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0px;
+  padding: 3px;
+}
+.dataempty
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', Helvetica, sans-serif;
+  font-size: 8pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 3px;
+}
+.datafixed
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 8pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 3px;
+}
+.datafixedemphasis
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 8pt;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0px;
+  padding: 3px;
+}
+.datastrong
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', Helvetica, sans-serif;
+  font-size: 8pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+}
+.datastrongfixed
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 8pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+}
+.date
+{
+  background-color: #FFFFFF;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+  width: 100%;
+}
+.default
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.document
+{
+}
+a:link {
+color:#275E94
+}
+a:visited {
+color:#275E94
+}
+a:active {
+color:#275E94
+}
+.drilldetaildata
+{
+  background-color: #FFFFFF;
+  color: #34699E;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-weight: normal;
+  padding: 0px;
+}
+.drilldetailhover
+{
+  background-color: #FFFFFF;
+  color: #34699E;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-weight: normal;
+  padding: 0px;
+  text-decoration: underline;
+}
+.dropshadowstyle
+{
+  border: 1px solid #3872AC;
+  color: #000000;
+}
+.errorbanner
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.errorcontent
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.errorcontentfixed
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.extendedpage
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.fatalbanner
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.fatalcontent
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.fatalcontentfixed
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.folderaction
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.footer
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.footeremphasis
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.footeremphasisfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.footerempty
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.footerfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.footerstrong
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.footerstrongfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.frame
+{
+}
+.graph
+{
+  border: 1px solid #3872AC;
+}
+.graphaxislines
+{
+  border: 1px solid #3872AC;
+  color: #003399;
+}
+.graphbackground
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  color: #FFFFFF;
+}
+.graphborderlines
+{
+  border: 1px solid #3872AC;
+  color: #003399;
+}
+.graphcharts
+{
+  border: 1px solid #3872AC;
+}
+.graphcrumbtrail
+{
+  border: 0px solid #3872AC;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 8pt;
+  font-weight: normal;
+  padding: 5px;
+}
+.graphcutline
+{
+  border: 1px solid #3872AC;
+  color: #94B7DA;
+}
+.graphdata1
+{
+  border: 1px solid #3872AC;
+  color: #94B7DA;
+}
+.graphdata10
+{
+  border: 1px solid #3872AC;
+  color: #B4BDDB;
+}
+.graphdata11
+{
+  border: 1px solid #3872AC;
+  color: #EEEAC1;
+}
+.graphdata12
+{
+  border: 1px solid #3872AC;
+  color: #91A2A9;
+}
+.graphdata2
+{
+  border: 1px solid #3872AC;
+  color: #B6D2A2;
+}
+.graphdata3
+{
+  border: 1px solid #3872AC;
+  color: #DCC685;
+}
+.graphdata4
+{
+  border: 1px solid #3872AC;
+  color: #9089AD;
+}
+.graphdata5
+{
+  border: 1px solid #3872AC;
+  color: #B6D8EA;
+}
+.graphdata6
+{
+  border: 1px solid #3872AC;
+  color: #D2D2C1;
+}
+.graphdata7
+{
+  border: 1px solid #3872AC;
+  color: #A86B86;
+}
+.graphdata8
+{
+  border: 1px solid #3872AC;
+  color: #61A1A3;
+}
+.graphdata9
+{
+  border: 1px solid #3872AC;
+  color: #A89D74;
+}
+.graphdatadefault
+{
+  color: #D7E4F1;
+}
+.graphfinal
+{
+  border: 1px solid #3872AC;
+  color: #91A2A9;
+}
+.graphfloor
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  color: #FFFFFF;
+}
+.graphgridlines
+{
+  border: 1px solid #3872AC;
+  color: #ECECEC;
+}
+.graphinitial
+{
+  border: 1px solid #3872AC;
+  color: #EEEAC1;
+}
+.graphlegendbackground
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  color: #FFFFFF;
+}
+.graphother
+{
+  border: 1px solid #3872AC;
+  color: #91A2A9;
+}
+.graphoutlines
+{
+  border: 1px solid #3872AC;
+  color: #003399;
+}
+.graphoverflow
+{
+  border: 1px solid #3872AC;
+  color: #EEEAC1;
+}
+.graphreference
+{
+  border: 1px solid #3872AC;
+  color: #808080;
+}
+.graphunderflow
+{
+  border: 1px solid #3872AC;
+  color: #91A2A9;
+}
+.graphwalls
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  color: #FFFFFF;
+}
+.header
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.headeremphasis
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.headeremphasisfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.headerempty
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.headerfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.headersandfooters
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.headerstrong
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.headerstrongfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+.heading1
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.heading2
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 14pt;
+  font-style: italic;
+  font-weight: bold;
+  padding: 0px;
+}
+.heading3
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.indexaction
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list10
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list2
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list3
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list4
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list5
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list6
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list7
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list8
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.list9
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem10
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem2
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem3
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem4
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem5
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem6
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem7
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem8
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.listitem9
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.normaltext
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.note
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.notebanner
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.notecontent
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.notecontentfixed
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.pages
+{
+  background-color: #EEEAC1;
+  color: #000000;
+  list-style-type: decimal;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.pagesdate
+{
+  background-color: #FFFFFF;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+  width: 100%;
+}
+.pagesitem
+{
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 10pt;
+}
+.pagesproclabel
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.pagesprocname
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.pagestitle
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.paragraph
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.parskip
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0px;
+  padding: 5px;
+}
+.prepage
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.proctitle
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+.proctitlefixed
+{
+  background-color: transparent;
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+.rowfooter
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowfooteremphasis
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowfooteremphasisfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowfooterempty
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowfooterfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowfooterstrong
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowfooterstrongfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowheader
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowheaderemphasis
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowheaderemphasisfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowheaderempty
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowheaderfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowheaderstrong
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rowheaderstrongfixed
+{
+  background-color: #FAF3D4;
+  border-bottom-width: 1px;
+  border-color: #AAC1D9;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.systemfooter
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemfooter10
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemfooter2
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemfooter3
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemfooter4
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemfooter5
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemfooter6
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemfooter7
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemfooter8
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemfooter9
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  padding: 0px;
+}
+.systemtitle
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.systemtitle10
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.systemtitle2
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.systemtitle3
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.systemtitle4
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.systemtitle5
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.systemtitle6
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.systemtitle7
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.systemtitle8
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.systemtitle9
+{
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px;
+}
+.table
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #3872AC;
+  border-left-width: 2px;
+  border-right-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 2px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  vertical-align: middle;
+}
+.top_stacked_value
+{
+  padding-bottom: 1px;
+}
+.middle_stacked_value
+{
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.bottom_stacked_value
+{
+  padding-top: 1px;
+}
+.twocoloraltramp
+{
+  border: 1px solid #3872AC;
+}
+.twocolorramp
+{
+  border: 1px solid #3872AC;
+}
+.usertext
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.warnbanner
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.warncontent
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Arial, 'Albany AMT', sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.warncontentfixed
+{
+  background-color: #FFFFFF;
+  border: 1px solid #3872AC;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: 'Courier New', Courier, fixed;
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+}
+.l {text-align: left }
+.c {text-align: center }
+.r {text-align: right }
+.d {text-align: right }
+.j {text-align: justify }
+.t {vertical-align: top }
+.m {vertical-align: middle }
+.b {vertical-align: bottom }
+TD, TH {vertical-align: top }
+.stacked_cell{padding: 0 }
+-->
+</style>
+<script language="javascript" type="text/javascript">
+<!-- 
+function startup(){
+
+}
+function shutdown(){
+
+}
+
+//-->
+</script>
+
+</head>
+<body onload="startup()" onunload="shutdown()" class="body">
+
+<script language="javascript" type="text/javascript">
+<!-- 
+var _info = navigator.userAgent
+var _ie = (_info.indexOf("MSIE") > 0
+          && _info.indexOf("Win") > 0
+          && _info.indexOf("Windows 3.1") < 0);
+var _ie64 = _info.indexOf("x64") > 0
+
+//-->
+</script>
+
+<div class="branch">
+<a name="IDX"></a>
+<table class="systitleandfootercontainer" width="100%" summary="Page Layout">
+<tbody><tr>
+<td class="c systemtitle">1: Software Calculation of IEEE Floating-Point Values, Intel Format</td>
+</tr>
+</tbody></table><br>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="11" scope="rowgroup">      0</th>
+<td class="l data">00000000000014C0</td>
+<td class="r data" nowrap="">        -5</td>
+<td class="r data">         5</td>
+<td class="r data">C014</td>
+<td class="l data">1 (-)</td>
+<td class="r data">0401</td>
+<td class="r data"> 1025</td>
+<td class="r data">    2</td>
+</tr>
+<tr>
+<td class="l data">00000000000010C0</td>
+<td class="r data" nowrap="">        -4</td>
+<td class="r data">         4</td>
+<td class="r data">C010</td>
+<td class="l data">1 (-)</td>
+<td class="r data">0401</td>
+<td class="r data"> 1025</td>
+<td class="r data">    2</td>
+</tr>
+<tr>
+<td class="l data">00000000000008C0</td>
+<td class="r data" nowrap="">        -3</td>
+<td class="r data">         3</td>
+<td class="r data">C008</td>
+<td class="l data">1 (-)</td>
+<td class="r data">0400</td>
+<td class="r data"> 1024</td>
+<td class="r data">    1</td>
+</tr>
+<tr>
+<td class="l data">00000000000000C0</td>
+<td class="r data" nowrap="">        -2</td>
+<td class="r data">         2</td>
+<td class="r data">C000</td>
+<td class="l data">1 (-)</td>
+<td class="r data">0400</td>
+<td class="r data"> 1024</td>
+<td class="r data">    1</td>
+</tr>
+<tr>
+<td class="l data">000000000000F0BF</td>
+<td class="r data" nowrap="">        -1</td>
+<td class="r data">         1</td>
+<td class="r data">BFF0</td>
+<td class="l data">1 (-)</td>
+<td class="r data">03FF</td>
+<td class="r data"> 1023</td>
+<td class="r data">    0</td>
+</tr>
+<tr>
+<td class="l data">0000000000000000</td>
+<td class="r data">         0</td>
+<td class="r data">         0</td>
+<td class="r data">0000</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0000</td>
+<td class="r data">    0</td>
+<td class="r data" nowrap="">-1023</td>
+</tr>
+<tr>
+<td class="l data">000000000000F03F</td>
+<td class="r data">         1</td>
+<td class="r data">         1</td>
+<td class="r data">3FF0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">03FF</td>
+<td class="r data"> 1023</td>
+<td class="r data">    0</td>
+</tr>
+<tr>
+<td class="l data">0000000000000040</td>
+<td class="r data">         2</td>
+<td class="r data">         2</td>
+<td class="r data">4000</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0400</td>
+<td class="r data"> 1024</td>
+<td class="r data">    1</td>
+</tr>
+<tr>
+<td class="l data">0000000000000840</td>
+<td class="r data">         3</td>
+<td class="r data">         3</td>
+<td class="r data">4008</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0400</td>
+<td class="r data"> 1024</td>
+<td class="r data">    1</td>
+</tr>
+<tr>
+<td class="l data">0000000000001040</td>
+<td class="r data">         4</td>
+<td class="r data">         4</td>
+<td class="r data">4010</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0401</td>
+<td class="r data"> 1025</td>
+<td class="r data">    2</td>
+</tr>
+<tr>
+<td class="l data">0000000000001440</td>
+<td class="r data">         5</td>
+<td class="r data">         5</td>
+<td class="r data">4014</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0401</td>
+<td class="r data"> 1025</td>
+<td class="r data">    2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX1"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="5" scope="rowgroup">      8</th>
+<td class="l data">0000000000001840</td>
+<td class="r data">         6</td>
+<td class="r data">         6</td>
+<td class="r data">4018</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0401</td>
+<td class="r data"> 1025</td>
+<td class="r data">    2</td>
+</tr>
+<tr>
+<td class="l data">0000000000001C40</td>
+<td class="r data">         7</td>
+<td class="r data">         7</td>
+<td class="r data">401C</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0401</td>
+<td class="r data"> 1025</td>
+<td class="r data">    2</td>
+</tr>
+<tr>
+<td class="l data">0000000000002040</td>
+<td class="r data">         8</td>
+<td class="r data">         8</td>
+<td class="r data">4020</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0402</td>
+<td class="r data"> 1026</td>
+<td class="r data">    3</td>
+</tr>
+<tr>
+<td class="l data">0000000000002240</td>
+<td class="r data">         9</td>
+<td class="r data">         9</td>
+<td class="r data">4022</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0402</td>
+<td class="r data"> 1026</td>
+<td class="r data">    3</td>
+</tr>
+<tr>
+<td class="l data">0000000000002440</td>
+<td class="r data">        10</td>
+<td class="r data">        10</td>
+<td class="r data">4024</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0402</td>
+<td class="r data"> 1026</td>
+<td class="r data">    3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX2"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="5" scope="rowgroup">     16</th>
+<td class="l data">0000000000002C40</td>
+<td class="r data">        14</td>
+<td class="r data">        14</td>
+<td class="r data">402C</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0402</td>
+<td class="r data"> 1026</td>
+<td class="r data">    3</td>
+</tr>
+<tr>
+<td class="l data">0000000000002E40</td>
+<td class="r data">        15</td>
+<td class="r data">        15</td>
+<td class="r data">402E</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0402</td>
+<td class="r data"> 1026</td>
+<td class="r data">    3</td>
+</tr>
+<tr>
+<td class="l data">0000000000003040</td>
+<td class="r data">        16</td>
+<td class="r data">        16</td>
+<td class="r data">4030</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0403</td>
+<td class="r data"> 1027</td>
+<td class="r data">    4</td>
+</tr>
+<tr>
+<td class="l data">0000000000003140</td>
+<td class="r data">        17</td>
+<td class="r data">        17</td>
+<td class="r data">4031</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0403</td>
+<td class="r data"> 1027</td>
+<td class="r data">    4</td>
+</tr>
+<tr>
+<td class="l data">0000000000003240</td>
+<td class="r data">        18</td>
+<td class="r data">        18</td>
+<td class="r data">4032</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0403</td>
+<td class="r data"> 1027</td>
+<td class="r data">    4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX3"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="5" scope="rowgroup">     32</th>
+<td class="l data">0000000000003E40</td>
+<td class="r data">        30</td>
+<td class="r data">        30</td>
+<td class="r data">403E</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0403</td>
+<td class="r data"> 1027</td>
+<td class="r data">    4</td>
+</tr>
+<tr>
+<td class="l data">0000000000003F40</td>
+<td class="r data">        31</td>
+<td class="r data">        31</td>
+<td class="r data">403F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0403</td>
+<td class="r data"> 1027</td>
+<td class="r data">    4</td>
+</tr>
+<tr>
+<td class="l data">0000000000004040</td>
+<td class="r data">        32</td>
+<td class="r data">        32</td>
+<td class="r data">4040</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0404</td>
+<td class="r data"> 1028</td>
+<td class="r data">    5</td>
+</tr>
+<tr>
+<td class="l data">0000000000804040</td>
+<td class="r data">        33</td>
+<td class="r data">        33</td>
+<td class="r data">4040</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0404</td>
+<td class="r data"> 1028</td>
+<td class="r data">    5</td>
+</tr>
+<tr>
+<td class="l data">0000000000004140</td>
+<td class="r data">        34</td>
+<td class="r data">        34</td>
+<td class="r data">4041</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0404</td>
+<td class="r data"> 1028</td>
+<td class="r data">    5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX4"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="5" scope="rowgroup">     64</th>
+<td class="l data">0000000000004F40</td>
+<td class="r data">        62</td>
+<td class="r data">        62</td>
+<td class="r data">404F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0404</td>
+<td class="r data"> 1028</td>
+<td class="r data">    5</td>
+</tr>
+<tr>
+<td class="l data">0000000000804F40</td>
+<td class="r data">        63</td>
+<td class="r data">        63</td>
+<td class="r data">404F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0404</td>
+<td class="r data"> 1028</td>
+<td class="r data">    5</td>
+</tr>
+<tr>
+<td class="l data">0000000000005040</td>
+<td class="r data">        64</td>
+<td class="r data">        64</td>
+<td class="r data">4050</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0405</td>
+<td class="r data"> 1029</td>
+<td class="r data">    6</td>
+</tr>
+<tr>
+<td class="l data">0000000000405040</td>
+<td class="r data">        65</td>
+<td class="r data">        65</td>
+<td class="r data">4050</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0405</td>
+<td class="r data"> 1029</td>
+<td class="r data">    6</td>
+</tr>
+<tr>
+<td class="l data">0000000000805040</td>
+<td class="r data">        66</td>
+<td class="r data">        66</td>
+<td class="r data">4050</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0405</td>
+<td class="r data"> 1029</td>
+<td class="r data">    6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX5"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="5" scope="rowgroup">    128</th>
+<td class="l data">0000000000805F40</td>
+<td class="r data">       126</td>
+<td class="r data">       126</td>
+<td class="r data">405F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0405</td>
+<td class="r data"> 1029</td>
+<td class="r data">    6</td>
+</tr>
+<tr>
+<td class="l data">0000000000C05F40</td>
+<td class="r data">       127</td>
+<td class="r data">       127</td>
+<td class="r data">405F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0405</td>
+<td class="r data"> 1029</td>
+<td class="r data">    6</td>
+</tr>
+<tr>
+<td class="l data">0000000000006040</td>
+<td class="r data">       128</td>
+<td class="r data">       128</td>
+<td class="r data">4060</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0406</td>
+<td class="r data"> 1030</td>
+<td class="r data">    7</td>
+</tr>
+<tr>
+<td class="l data">0000000000206040</td>
+<td class="r data">       129</td>
+<td class="r data">       129</td>
+<td class="r data">4060</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0406</td>
+<td class="r data"> 1030</td>
+<td class="r data">    7</td>
+</tr>
+<tr>
+<td class="l data">0000000000406040</td>
+<td class="r data">       130</td>
+<td class="r data">       130</td>
+<td class="r data">4060</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0406</td>
+<td class="r data"> 1030</td>
+<td class="r data">    7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX6"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="5" scope="rowgroup">    256</th>
+<td class="l data">0000000000C06F40</td>
+<td class="r data">       254</td>
+<td class="r data">       254</td>
+<td class="r data">406F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0406</td>
+<td class="r data"> 1030</td>
+<td class="r data">    7</td>
+</tr>
+<tr>
+<td class="l data">0000000000E06F40</td>
+<td class="r data">       255</td>
+<td class="r data">       255</td>
+<td class="r data">406F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0406</td>
+<td class="r data"> 1030</td>
+<td class="r data">    7</td>
+</tr>
+<tr>
+<td class="l data">0000000000007040</td>
+<td class="r data">       256</td>
+<td class="r data">       256</td>
+<td class="r data">4070</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0407</td>
+<td class="r data"> 1031</td>
+<td class="r data">    8</td>
+</tr>
+<tr>
+<td class="l data">0000000000107040</td>
+<td class="r data">       257</td>
+<td class="r data">       257</td>
+<td class="r data">4070</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0407</td>
+<td class="r data"> 1031</td>
+<td class="r data">    8</td>
+</tr>
+<tr>
+<td class="l data">0000000000207040</td>
+<td class="r data">       258</td>
+<td class="r data">       258</td>
+<td class="r data">4070</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0407</td>
+<td class="r data"> 1031</td>
+<td class="r data">    8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX7"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">    512</th>
+<td class="l data">0000000000F07F40</td>
+<td class="r data">       511</td>
+<td class="r data">       511</td>
+<td class="r data">407F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0407</td>
+<td class="r data"> 1031</td>
+<td class="r data">    8</td>
+</tr>
+<tr>
+<td class="l data">0000000000008040</td>
+<td class="r data">       512</td>
+<td class="r data">       512</td>
+<td class="r data">4080</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0408</td>
+<td class="r data"> 1032</td>
+<td class="r data">    9</td>
+</tr>
+<tr>
+<td class="l data">0000000000088040</td>
+<td class="r data">       513</td>
+<td class="r data">       513</td>
+<td class="r data">4080</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0408</td>
+<td class="r data"> 1032</td>
+<td class="r data">    9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX8"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">   1024</th>
+<td class="l data">0000000000F88F40</td>
+<td class="r data">     1,023</td>
+<td class="r data">     1,023</td>
+<td class="r data">408F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0408</td>
+<td class="r data"> 1032</td>
+<td class="r data">    9</td>
+</tr>
+<tr>
+<td class="l data">0000000000009040</td>
+<td class="r data">     1,024</td>
+<td class="r data">     1,024</td>
+<td class="r data">4090</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0409</td>
+<td class="r data"> 1033</td>
+<td class="r data">   10</td>
+</tr>
+<tr>
+<td class="l data">0000000000049040</td>
+<td class="r data">     1,025</td>
+<td class="r data">     1,025</td>
+<td class="r data">4090</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0409</td>
+<td class="r data"> 1033</td>
+<td class="r data">   10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX9"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">   2048</th>
+<td class="l data">0000000000FC9F40</td>
+<td class="r data">     2,047</td>
+<td class="r data">     2,047</td>
+<td class="r data">409F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0409</td>
+<td class="r data"> 1033</td>
+<td class="r data">   10</td>
+</tr>
+<tr>
+<td class="l data">000000000000A040</td>
+<td class="r data">     2,048</td>
+<td class="r data">     2,048</td>
+<td class="r data">40A0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040A</td>
+<td class="r data"> 1034</td>
+<td class="r data">   11</td>
+</tr>
+<tr>
+<td class="l data">000000000002A040</td>
+<td class="r data">     2,049</td>
+<td class="r data">     2,049</td>
+<td class="r data">40A0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040A</td>
+<td class="r data"> 1034</td>
+<td class="r data">   11</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX10"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">   4096</th>
+<td class="l data">0000000000FEAF40</td>
+<td class="r data">     4,095</td>
+<td class="r data">     4,095</td>
+<td class="r data">40AF</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040A</td>
+<td class="r data"> 1034</td>
+<td class="r data">   11</td>
+</tr>
+<tr>
+<td class="l data">000000000000B040</td>
+<td class="r data">     4,096</td>
+<td class="r data">     4,096</td>
+<td class="r data">40B0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040B</td>
+<td class="r data"> 1035</td>
+<td class="r data">   12</td>
+</tr>
+<tr>
+<td class="l data">000000000001B040</td>
+<td class="r data">     4,097</td>
+<td class="r data">     4,097</td>
+<td class="r data">40B0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040B</td>
+<td class="r data"> 1035</td>
+<td class="r data">   12</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX11"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">   8192</th>
+<td class="l data">0000000000FFBF40</td>
+<td class="r data">     8,191</td>
+<td class="r data">     8,191</td>
+<td class="r data">40BF</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040B</td>
+<td class="r data"> 1035</td>
+<td class="r data">   12</td>
+</tr>
+<tr>
+<td class="l data">000000000000C040</td>
+<td class="r data">     8,192</td>
+<td class="r data">     8,192</td>
+<td class="r data">40C0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040C</td>
+<td class="r data"> 1036</td>
+<td class="r data">   13</td>
+</tr>
+<tr>
+<td class="l data">000000008000C040</td>
+<td class="r data">     8,193</td>
+<td class="r data">     8,193</td>
+<td class="r data">40C0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040C</td>
+<td class="r data"> 1036</td>
+<td class="r data">   13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX12"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">  16384</th>
+<td class="l data">0000000080FFCF40</td>
+<td class="r data">    16,383</td>
+<td class="r data">    16,383</td>
+<td class="r data">40CF</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040C</td>
+<td class="r data"> 1036</td>
+<td class="r data">   13</td>
+</tr>
+<tr>
+<td class="l data">000000000000D040</td>
+<td class="r data">    16,384</td>
+<td class="r data">    16,384</td>
+<td class="r data">40D0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040D</td>
+<td class="r data"> 1037</td>
+<td class="r data">   14</td>
+</tr>
+<tr>
+<td class="l data">000000004000D040</td>
+<td class="r data">    16,385</td>
+<td class="r data">    16,385</td>
+<td class="r data">40D0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040D</td>
+<td class="r data"> 1037</td>
+<td class="r data">   14</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX13"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">  32768</th>
+<td class="l data">00000000C0FFDF40</td>
+<td class="r data">    32,767</td>
+<td class="r data">    32,767</td>
+<td class="r data">40DF</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040D</td>
+<td class="r data"> 1037</td>
+<td class="r data">   14</td>
+</tr>
+<tr>
+<td class="l data">000000000000E040</td>
+<td class="r data">    32,768</td>
+<td class="r data">    32,768</td>
+<td class="r data">40E0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040E</td>
+<td class="r data"> 1038</td>
+<td class="r data">   15</td>
+</tr>
+<tr>
+<td class="l data">000000002000E040</td>
+<td class="r data">    32,769</td>
+<td class="r data">    32,769</td>
+<td class="r data">40E0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040E</td>
+<td class="r data"> 1038</td>
+<td class="r data">   15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX14"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">  65536</th>
+<td class="l data">00000000E0FFEF40</td>
+<td class="r data">    65,535</td>
+<td class="r data">    65,535</td>
+<td class="r data">40EF</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040E</td>
+<td class="r data"> 1038</td>
+<td class="r data">   15</td>
+</tr>
+<tr>
+<td class="l data">000000000000F040</td>
+<td class="r data">    65,536</td>
+<td class="r data">    65,536</td>
+<td class="r data">40F0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040F</td>
+<td class="r data"> 1039</td>
+<td class="r data">   16</td>
+</tr>
+<tr>
+<td class="l data">000000001000F040</td>
+<td class="r data">    65,537</td>
+<td class="r data">    65,537</td>
+<td class="r data">40F0</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040F</td>
+<td class="r data"> 1039</td>
+<td class="r data">   16</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX15"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup"> 131072</th>
+<td class="l data">00000000F0FFFF40</td>
+<td class="r data">   131,071</td>
+<td class="r data">   131,071</td>
+<td class="r data">40FF</td>
+<td class="l data">0 (+)</td>
+<td class="r data">040F</td>
+<td class="r data"> 1039</td>
+<td class="r data">   16</td>
+</tr>
+<tr>
+<td class="l data">0000000000000041</td>
+<td class="r data">   131,072</td>
+<td class="r data">   131,072</td>
+<td class="r data">4100</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0410</td>
+<td class="r data"> 1040</td>
+<td class="r data">   17</td>
+</tr>
+<tr>
+<td class="l data">0000000008000041</td>
+<td class="r data">   131,073</td>
+<td class="r data">   131,073</td>
+<td class="r data">4100</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0410</td>
+<td class="r data"> 1040</td>
+<td class="r data">   17</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX16"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup"> 262144</th>
+<td class="l data">00000000F8FF0F41</td>
+<td class="r data">   262,143</td>
+<td class="r data">   262,143</td>
+<td class="r data">410F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0410</td>
+<td class="r data"> 1040</td>
+<td class="r data">   17</td>
+</tr>
+<tr>
+<td class="l data">0000000000001041</td>
+<td class="r data">   262,144</td>
+<td class="r data">   262,144</td>
+<td class="r data">4110</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0411</td>
+<td class="r data"> 1041</td>
+<td class="r data">   18</td>
+</tr>
+<tr>
+<td class="l data">0000000004001041</td>
+<td class="r data">   262,145</td>
+<td class="r data">   262,145</td>
+<td class="r data">4110</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0411</td>
+<td class="r data"> 1041</td>
+<td class="r data">   18</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX17"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup"> 524288</th>
+<td class="l data">00000000FCFF1F41</td>
+<td class="r data">   524,287</td>
+<td class="r data">   524,287</td>
+<td class="r data">411F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0411</td>
+<td class="r data"> 1041</td>
+<td class="r data">   18</td>
+</tr>
+<tr>
+<td class="l data">0000000000002041</td>
+<td class="r data">   524,288</td>
+<td class="r data">   524,288</td>
+<td class="r data">4120</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0412</td>
+<td class="r data"> 1042</td>
+<td class="r data">   19</td>
+</tr>
+<tr>
+<td class="l data">0000000002002041</td>
+<td class="r data">   524,289</td>
+<td class="r data">   524,289</td>
+<td class="r data">4120</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0412</td>
+<td class="r data"> 1042</td>
+<td class="r data">   19</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX18"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">1048576</th>
+<td class="l data">00000000FEFF2F41</td>
+<td class="r data"> 1,048,575</td>
+<td class="r data"> 1,048,575</td>
+<td class="r data">412F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0412</td>
+<td class="r data"> 1042</td>
+<td class="r data">   19</td>
+</tr>
+<tr>
+<td class="l data">0000000000003041</td>
+<td class="r data"> 1,048,576</td>
+<td class="r data"> 1,048,576</td>
+<td class="r data">4130</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0413</td>
+<td class="r data"> 1043</td>
+<td class="r data">   20</td>
+</tr>
+<tr>
+<td class="l data">0000000001003041</td>
+<td class="r data"> 1,048,577</td>
+<td class="r data"> 1,048,577</td>
+<td class="r data">4130</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0413</td>
+<td class="r data"> 1043</td>
+<td class="r data">   20</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX19"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">2097152</th>
+<td class="l data">00000000FFFF3F41</td>
+<td class="r data"> 2,097,151</td>
+<td class="r data"> 2,097,151</td>
+<td class="r data">413F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0413</td>
+<td class="r data"> 1043</td>
+<td class="r data">   20</td>
+</tr>
+<tr>
+<td class="l data">0000000000004041</td>
+<td class="r data"> 2,097,152</td>
+<td class="r data"> 2,097,152</td>
+<td class="r data">4140</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0414</td>
+<td class="r data"> 1044</td>
+<td class="r data">   21</td>
+</tr>
+<tr>
+<td class="l data">0000008000004041</td>
+<td class="r data"> 2,097,153</td>
+<td class="r data"> 2,097,153</td>
+<td class="r data">4140</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0414</td>
+<td class="r data"> 1044</td>
+<td class="r data">   21</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX20"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">4194304</th>
+<td class="l data">00000080FFFF4F41</td>
+<td class="r data"> 4,194,303</td>
+<td class="r data"> 4,194,303</td>
+<td class="r data">414F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0414</td>
+<td class="r data"> 1044</td>
+<td class="r data">   21</td>
+</tr>
+<tr>
+<td class="l data">0000000000005041</td>
+<td class="r data"> 4,194,304</td>
+<td class="r data"> 4,194,304</td>
+<td class="r data">4150</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0415</td>
+<td class="r data"> 1045</td>
+<td class="r data">   22</td>
+</tr>
+<tr>
+<td class="l data">0000004000005041</td>
+<td class="r data"> 4,194,305</td>
+<td class="r data"> 4,194,305</td>
+<td class="r data">4150</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0415</td>
+<td class="r data"> 1045</td>
+<td class="r data">   22</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX21"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA1">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">series</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">value</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">sign</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" rowspan="3" scope="rowgroup">8388608</th>
+<td class="l data">000000C0FFFF5F41</td>
+<td class="r data"> 8,388,607</td>
+<td class="r data"> 8,388,607</td>
+<td class="r data">415F</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0415</td>
+<td class="r data"> 1045</td>
+<td class="r data">   22</td>
+</tr>
+<tr>
+<td class="l data">0000000000006041</td>
+<td class="r data"> 8,388,608</td>
+<td class="r data"> 8,388,608</td>
+<td class="r data">4160</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0416</td>
+<td class="r data"> 1046</td>
+<td class="r data">   23</td>
+</tr>
+<tr>
+<td class="l data">0000002000006041</td>
+<td class="r data"> 8,388,609</td>
+<td class="r data"> 8,388,609</td>
+<td class="r data">4160</td>
+<td class="l data">0 (+)</td>
+<td class="r data">0416</td>
+<td class="r data"> 1046</td>
+<td class="r data">   23</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<a name="IDX22"></a>
+<table class="systitleandfootercontainer" width="100%" summary="Page Layout">
+<tbody><tr>
+<td class="c systemtitle">2: The Two Original Values and Their Difference</td>
+</tr>
+</tbody></table><br>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.A">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">Obs</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">y</th>
+<th class="c m header" scope="col">crby</th>
+<th class="c m header" scope="col">d</th>
+<th class="c m header" scope="col">crbd</th>
+<th class="c m header" scope="col">signexp</th>
+<th class="c m header" scope="col">exponent</th>
+<th class="c m header" scope="col">exp_biased</th>
+<th class="c m header" scope="col">exp_use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" scope="row">1</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C165E7E555BDDB42</td>
+<td class="r data"> 0.01562500</td>
+<td class="l data">000000000000903F</td>
+<td class="r data">3F90</td>
+<td class="r data">03F9</td>
+<td class="r data"> 1017</td>
+<td class="r data" nowrap="">   -6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<a name="IDX23"></a>
+<table class="systitleandfootercontainer" width="100%" summary="Page Layout">
+<tbody><tr>
+<td class="c systemtitle">3: Values Immediately Adjacent to the Customer's Integer</td>
+</tr>
+</tbody></table><br>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA2">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">Obs</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">y</th>
+<th class="c m header" scope="col">crby</th>
+<th class="c m header" scope="col">lsb</th>
+<th class="c m header" scope="col">d</th>
+<th class="c m header" scope="col">lagd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" scope="row"> 1</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">B165E7E555BDDB42</td>
+<td class="r data">10110001</td>
+<td class="r data" nowrap="">-0.23437500</td>
+<td class="r data"> .      </td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 2</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">B265E7E555BDDB42</td>
+<td class="r data">10110010</td>
+<td class="r data" nowrap="">-0.21875000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 3</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">B365E7E555BDDB42</td>
+<td class="r data">10110011</td>
+<td class="r data" nowrap="">-0.20312500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 4</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">B465E7E555BDDB42</td>
+<td class="r data">10110100</td>
+<td class="r data" nowrap="">-0.18750000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 5</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">B565E7E555BDDB42</td>
+<td class="r data">10110101</td>
+<td class="r data" nowrap="">-0.17187500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 6</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">B665E7E555BDDB42</td>
+<td class="r data">10110110</td>
+<td class="r data" nowrap="">-0.15625000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 7</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">B765E7E555BDDB42</td>
+<td class="r data">10110111</td>
+<td class="r data" nowrap="">-0.14062500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 8</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">B865E7E555BDDB42</td>
+<td class="r data">10111000</td>
+<td class="r data" nowrap="">-0.12500000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 9</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">B965E7E555BDDB42</td>
+<td class="r data">10111001</td>
+<td class="r data" nowrap="">-0.10937500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">10</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">BA65E7E555BDDB42</td>
+<td class="r data">10111010</td>
+<td class="r data" nowrap="">-0.09375000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">11</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">BB65E7E555BDDB42</td>
+<td class="r data">10111011</td>
+<td class="r data" nowrap="">-0.07812500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">12</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">BC65E7E555BDDB42</td>
+<td class="r data">10111100</td>
+<td class="r data" nowrap="">-0.06250000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">13</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">BD65E7E555BDDB42</td>
+<td class="r data">10111101</td>
+<td class="r data" nowrap="">-0.04687500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">14</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">BE65E7E555BDDB42</td>
+<td class="r data">10111110</td>
+<td class="r data" nowrap="">-0.03125000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">15</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">BF65E7E555BDDB42</td>
+<td class="r data">10111111</td>
+<td class="r data" nowrap="">-0.01562500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">16</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">11000000</td>
+<td class="r data"> 0.00000000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">17</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C165E7E555BDDB42</td>
+<td class="r data">11000001</td>
+<td class="r data"> 0.01562500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">18</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C265E7E555BDDB42</td>
+<td class="r data">11000010</td>
+<td class="r data"> 0.03125000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">19</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C365E7E555BDDB42</td>
+<td class="r data">11000011</td>
+<td class="r data"> 0.04687500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">20</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C465E7E555BDDB42</td>
+<td class="r data">11000100</td>
+<td class="r data"> 0.06250000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">21</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C565E7E555BDDB42</td>
+<td class="r data">11000101</td>
+<td class="r data"> 0.07812500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">22</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C665E7E555BDDB42</td>
+<td class="r data">11000110</td>
+<td class="r data"> 0.09375000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">23</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C765E7E555BDDB42</td>
+<td class="r data">11000111</td>
+<td class="r data"> 0.10937500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">24</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C865E7E555BDDB42</td>
+<td class="r data">11001000</td>
+<td class="r data"> 0.12500000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">25</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C965E7E555BDDB42</td>
+<td class="r data">11001001</td>
+<td class="r data"> 0.14062500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">26</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">CA65E7E555BDDB42</td>
+<td class="r data">11001010</td>
+<td class="r data"> 0.15625000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">27</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">CB65E7E555BDDB42</td>
+<td class="r data">11001011</td>
+<td class="r data"> 0.17187500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">28</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">CC65E7E555BDDB42</td>
+<td class="r data">11001100</td>
+<td class="r data"> 0.18750000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">29</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">CD65E7E555BDDB42</td>
+<td class="r data">11001101</td>
+<td class="r data"> 0.20312500</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">30</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">CE65E7E555BDDB42</td>
+<td class="r data">11001110</td>
+<td class="r data"> 0.21875000</td>
+<td class="r data">0.015625</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">31</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">CF65E7E555BDDB42</td>
+<td class="r data">11001111</td>
+<td class="r data"> 0.23437500</td>
+<td class="r data">0.015625</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<a name="IDX24"></a>
+<table class="systitleandfootercontainer" width="100%" summary="Page Layout">
+<tbody><tr>
+<td class="c systemtitle">4: Incrementing the Least-Significant of 15 Significant Decimal Digits</td>
+</tr>
+</tbody></table><br>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA3">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">Obs</th>
+<th class="c m header" scope="col">y</th>
+<th class="c m header" scope="col">crby</th>
+<th class="c m header" scope="col">ls_12bits_hex</th>
+<th class="c m header" scope="col">ls_12bits_bin</th>
+<th class="c m header" scope="col">d_10</th>
+<th class="c m header" scope="col">exp_use</th>
+<th class="c m header" scope="col">Lowest 12 Bits<br>Decoded</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" scope="row"> 1</th>
+<td class="r data">122000015596946.000000</td>
+<td class="l data">8064E7E555BDDB42</td>
+<td class="r data">480</td>
+<td class="r data">010010000000</td>
+<td class="r data">  .</td>
+<td class="r data">   46</td>
+<td class="r data">  18.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 2</th>
+<td class="r data">122000015596947.000000</td>
+<td class="l data">C064E7E555BDDB42</td>
+<td class="r data">4C0</td>
+<td class="r data">010011000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  19.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 3</th>
+<td class="r data">122000015596948.000000</td>
+<td class="l data">0065E7E555BDDB42</td>
+<td class="r data">500</td>
+<td class="r data">010100000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  20.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 4</th>
+<td class="r data">122000015596949.000000</td>
+<td class="l data">4065E7E555BDDB42</td>
+<td class="r data">540</td>
+<td class="r data">010101000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  21.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 5</th>
+<td class="r data">122000015596950.000000</td>
+<td class="l data">8065E7E555BDDB42</td>
+<td class="r data">580</td>
+<td class="r data">010110000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  22.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 6</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">5C0</td>
+<td class="r data">010111000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  23.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 7</th>
+<td class="r data">122000015596952.000000</td>
+<td class="l data">0066E7E555BDDB42</td>
+<td class="r data">600</td>
+<td class="r data">011000000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  24.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 8</th>
+<td class="r data">122000015596953.000000</td>
+<td class="l data">4066E7E555BDDB42</td>
+<td class="r data">640</td>
+<td class="r data">011001000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  25.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row"> 9</th>
+<td class="r data">122000015596954.000000</td>
+<td class="l data">8066E7E555BDDB42</td>
+<td class="r data">680</td>
+<td class="r data">011010000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  26.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">10</th>
+<td class="r data">122000015596955.000000</td>
+<td class="l data">C066E7E555BDDB42</td>
+<td class="r data">6C0</td>
+<td class="r data">011011000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  27.000</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">11</th>
+<td class="r data">122000015596956.000000</td>
+<td class="l data">0067E7E555BDDB42</td>
+<td class="r data">700</td>
+<td class="r data">011100000000</td>
+<td class="r data"> 64</td>
+<td class="r data">   46</td>
+<td class="r data">  28.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<a name="IDX25"></a>
+<table class="systitleandfootercontainer" width="100%" summary="Page Layout">
+<tbody><tr>
+<td class="c systemtitle">5: Results of Miscellaneous Math Operations</td>
+</tr>
+</tbody></table><br>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="3" summary="Procedure Print: Data Set WORK.DATA4">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c m header" scope="col">operation</th>
+<th class="c m header" scope="col">x</th>
+<th class="c m header" scope="col">crbx</th>
+<th class="c m header" scope="col">y</th>
+<th class="c m header" scope="col">crby</th>
+<th class="c m header" scope="col">w</th>
+<th class="c m header" scope="col">crbw</th>
+<th class="c m header" scope="col">d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l m rowheader" scope="row">Divide</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C165E7E555BDDB42</td>
+<td class="r data">             1.0000000</td>
+<td class="l data">010000000000F03F</td>
+<td class="r data" nowrap=""> 2.22045E-16</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">Multiply</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C165E7E555BDDB42</td>
+<td class="r data">    1.4884003805656E28</td>
+<td class="l data">E8CC8833E10BC845</td>
+<td class="r data"> 2.19902E+12</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">Add</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C165E7E555BDDB42</td>
+<td class="r data">244000031193902.000000</td>
+<td class="l data">C065E7E555BDEB42</td>
+<td class="r data"> 0.00000E+00</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">Fuzz</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C165E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C165E7E555BDDB42</td>
+<td class="r data" nowrap=""> 1.56250E-02</td>
+</tr>
+<tr>
+<th class="l m rowheader" scope="row">Round</th>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C165E7E555BDDB42</td>
+<td class="r data">122000015596951.000000</td>
+<td class="l data">C065E7E555BDDB42</td>
+<td class="r data"> 0.00000E+00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+
+
+<div id="buffer-extension-hover-container" style="font-family: Roboto, sans-serif; display: none; position: absolute; z-index: 8675309; cursor: pointer; width: 67px;"><div id="buffer-extension-button-hover-container" style="position: relative; z-index: 8675309; width: 67px; height: 24px;"><span id="buffer-extension-hover-button" style="width: 67px; height: 24px; background-image: url(&quot;chrome-extension://noojglkidnpfjbincgijbaiedldjfbhh/buffer-hover-button.svg&quot;); background-size: 67px 24px; cursor: pointer; opacity: 0.9; display: block; position: relative; z-index: 8675309;"></span><div id="buffer-extension-button-menu" style="position: relative; z-index: 8675308; width: 140px; height: 122px; display: none; bottom: 122px; right: 75px;"><div style="font-size: 14px; width: 140px; display: block; cursor: pointer; padding: 0px 4px; color: rgb(61, 61, 61); line-height: 28px; background-color: rgba(255, 255, 255, 0.8); border-top-left-radius: 4px; border-top-right-radius: 4px; height: 4px;"></div><div id="buffer-extension-create" class="buffer-extension-hover-button" style="font-size: 14px; width: 140px; height: 28px; display: block; cursor: pointer; padding: 0px 4px; color: rgb(61, 61, 61); line-height: 28px;"><span>Create Post</span></div><div id="buffer-extension-save" class="buffer-extension-hover-button" style="font-size: 14px; width: 140px; height: 28px; display: block; cursor: pointer; padding: 0px 4px; color: rgb(61, 61, 61); line-height: 28px;"><span>Save Idea</span></div><div class="buffer-extension-hover-button" id="buffer-extension-pablo" style="font-size: 14px; width: 140px; height: 28px; display: block; cursor: pointer; padding: 0px 4px; color: rgb(61, 61, 61); line-height: 28px;"><span>Open With Pablo</span></div><div style="font-size: 14px; width: 140px; display: block; cursor: pointer; padding: 0px 4px; color: rgb(61, 61, 61); line-height: 28px; background-color: rgba(255, 255, 255, 0.8); border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; height: 4px;"></div><style>.buffer-extension-hover-button { background-color:rgba(255, 255, 255, 0.8); } .buffer-extension-hover-button span { display:block; padding: 0 4px; border-radius: 4px 4px 4px 4px; -webkit-border-radius: 4px 4px 4px 4px; -moz-border-radius: 4px 4px 4px 4px; } .buffer-extension-hover-button:hover span { background-color:#F5F5F5; }</style></div></div></div></body></html>
