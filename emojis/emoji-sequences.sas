@@ -5,12 +5,13 @@
   NOTE: These data require ENCODING=UTF8 in your SAS session!
   
   Pull emoji definitions from Unicode.org
-  Each version of the emoji standard has a data file like this.
+  Each version of the emoji standard has a data file.
+  This code pulls from the "latest" to get the most current set.
 */
 
 filename raw temp;
 proc http
- url="https://unicode.org/Public/emoji/13.1/emoji-sequences.txt"
+  url="https://unicode.org/Public/emoji/latest/emoji-sequences.txt"
  out=raw;
 run;
 
