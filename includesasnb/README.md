@@ -11,7 +11,7 @@ Currently, SAS Notebook files support these type of code cells: SAS, SQL and Pyt
 The **filepath**= argument tells the macro where to find the SAS Notebook file. There are also two optional arguments:
 
 - **outpath=** Path to output file to save the code as a persistent .SAS file. If you do not specify outpath=, the code is stored in a temp location and deleted at the end of your SAS session.
-- **noexec=** 1 | 0 - If 0, then the code is not run but just echoed to the SAS log or output to the outpath= location.      
+- **noexec=** 1 | 0 - If 1, then the code is not run but just echoed to the SAS log or output to the outpath= location.      
 
 ### Example use
 ```
