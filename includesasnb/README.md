@@ -29,3 +29,9 @@ The **filepath**= argument tells the macro where to find the SAS Notebook file. 
                          outfile=c:\projects\newfile.sas);       
 
 ```
+
+### Limitations
+
+- There is a 32K byte limit on each code cell  that is read. Since these are read into SAS variables before written to a file, any code block larger than 32K will be truncated. The total amount of code cells don't have a limit; the 32K limit applies just to a single cell.
+
+- The .sasnb file must be on the file system. A future enhancement might add ability to read from a SAS Content folder in SAS Viya 4; let me know if that would be useful for you.
